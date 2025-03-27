@@ -1,6 +1,7 @@
 public class App {
     public static void main(String[] args){
         reversingArray();
+        binarySearchImplementation();
     }
 
     public static void reversingArray(){
@@ -21,5 +22,47 @@ public class App {
         for(int i = 0; i < myList.length; i++){    
             System.out.print(myList[i] + " ");
         }
+        System.out.println("\n");
+    }
+
+    public static void binarySearchImplementation(){
+        int[] numList = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int keyValue = 7;
+
+            /*
+                Logic: Begin by having the lowest value, then the highest value set
+                       Then have the middle value tested
+                       If middle value is key, provide feedback and 'break;'
+                       If the key is lower, assign middle value to high
+                       If the key is higher, assign middle value to low
+            */
+
+        int low = 0;
+        int high = numList.length - 1;
+        int iterationCount = 0;
+        
+        /*
+            Just a small note when running this, note that the values outputted in the
+            console are actually the index's of the array elements, not the elements themselves.
+            So the middle value is correct if its 1 below the actual keyValue in this case. 
+        */
+
+        while (high >= low) {
+            iterationCount++;
+            System.out.println("Iteration " + iterationCount);
+            int mid = (low + high) / 2;
+            System.out.println("    Low value: " + low + " | Middle value: " + mid + " | High value: " + high);
+            if(keyValue < numList[mid]){
+                high = mid - 1;
+            }
+            else if(numList[mid] == keyValue){
+                System.out.println("Number found! It was " + numList[mid]);
+                break;
+            }
+            else{
+                low = mid + 1;
+            }
+            System.out.println("    Low value: " + low + " | Middle value: " + mid + " | High value: " + high);
+        }   
     }
 }
