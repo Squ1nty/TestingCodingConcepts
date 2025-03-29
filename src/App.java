@@ -1,7 +1,8 @@
 public class App {
     public static void main(String[] args){
-        reversingArray();
-        binarySearchImplementation();
+        //reversingArray();
+        //binarySearchImplementation();
+        twoDimensionalArray();
     }
 
     public static void reversingArray(){
@@ -64,5 +65,28 @@ public class App {
             }
             System.out.println("    Low value: " + low + " | Middle value: " + mid + " | High value: " + high);
         }   
+    }
+
+    public static void twoDimensionalArray(){
+        int[][] testArray = new int[10][10];
+
+        //Initialise Array with variables
+        for(int i = 0; i < testArray.length; i++){
+
+            int count = 1;
+
+            for(int j = 0; j < testArray.length - 1; j++){
+                testArray[i][j] = count;
+                count++;
+
+                System.out.print(testArray[i][j]);
+            }
+
+            System.out.println();
+
+        }
+
+        // Prints out an array 10x10 counting 1-9 on every row
+
     }
 }
